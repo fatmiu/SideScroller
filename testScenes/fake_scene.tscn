@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp5sm7wuehrji"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wwaq4"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("CanvasTexture_wwaq4")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+self_modulate = Color(0, 0.0588235, 1, 1)
+offset_left = 59.0
+offset_top = 68.0
+offset_right = 99.0
+offset_bottom = 108.0
+scale = Vector2(1.21429, 1.11538)
+texture = SubResource("CanvasTexture_wwaq4")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+modulate = Color(0.984314, 0, 0.317647, 1)
+offset_left = 133.0
+offset_top = 136.0
+offset_right = 173.0
+offset_bottom = 176.0
+scale = Vector2(1.21429, 1.11538)
+texture = SubResource("CanvasTexture_wwaq4")
