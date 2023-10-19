@@ -1456,6 +1456,7 @@ position = Vector2(105, 39)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Transitioner" parent="CanvasLayer" instance=ExtResource("5_d03qm")]
+process_mode = 1
 scene_to_load = ExtResource("6_fx4nw")
 
 [node name="TransitionButton" type="CheckButton" parent="CanvasLayer" node_paths=PackedStringArray("transtioner")]
