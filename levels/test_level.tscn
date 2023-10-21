@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bygsogxf4oiqw"]
+[gd_scene load_steps=11 format=3 uid="uid://bygsogxf4oiqw"]
 
 [ext_resource type="Texture2D" uid="uid://1t6kes1quxvn" path="res://art/Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_vvv4g"]
 [ext_resource type="PackedScene" uid="uid://fmyk5isuxc16" path="res://character/player.tscn" id="2_doh8a"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgoy1hh4daprj" path="res://ui/transitioner.tscn" id="5_d03qm"]
 [ext_resource type="PackedScene" uid="uid://bp5sm7wuehrji" path="res://testScenes/fake_scene.tscn" id="6_fx4nw"]
 [ext_resource type="Script" path="res://ui/TransitionButton.gd" id="6_h51cx"]
+[ext_resource type="PackedScene" uid="uid://bq552wt6sj8q" path="res://objects/moving_plateform.tscn" id="8_6mpxh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dn65q"]
 texture = ExtResource("1_vvv4g")
@@ -1449,7 +1450,7 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="Snail" parent="." instance=ExtResource("3_svmoj")]
-position = Vector2(105, 39)
+position = Vector2(-80, 72)
 
 [node name="HealthChangedManager" parent="." instance=ExtResource("4_ip3mj")]
 
@@ -1457,6 +1458,8 @@ position = Vector2(105, 39)
 
 [node name="Transitioner" parent="CanvasLayer" instance=ExtResource("5_d03qm")]
 process_mode = 1
+offset_top = 4.0
+offset_bottom = 4.0
 scene_to_load = ExtResource("6_fx4nw")
 
 [node name="TransitionButton" type="CheckButton" parent="CanvasLayer" node_paths=PackedStringArray("transtioner")]
@@ -1465,5 +1468,8 @@ offset_bottom = 24.0
 focus_mode = 0
 script = ExtResource("6_h51cx")
 transtioner = NodePath("../Transitioner")
+
+[node name="MovingPlateform" parent="." instance=ExtResource("8_6mpxh")]
+position = Vector2(145, 68)
 
 [connection signal="toggled" from="CanvasLayer/TransitionButton" to="CanvasLayer/TransitionButton" method="_on_toggled"]

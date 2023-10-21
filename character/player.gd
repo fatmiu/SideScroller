@@ -46,3 +46,7 @@ func update_facing_direction():
 		sprite.flip_h = true
 	
 	emit_signal("facing_direction_changed", !sprite.flip_h)
+	
+func _input(event : InputEvent):
+	if(event.is_action_pressed("down") && is_on_floor()):
+		position.y += 1

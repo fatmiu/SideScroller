@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://bq552wt6sj8q"]
+
+[ext_resource type="Texture2D" uid="uid://cc46i0x8prhn3" path="res://art/Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png" id="1_g6i6m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7os4"]
+size = Vector2(48, 8)
+
+[sub_resource type="Animation" id="Animation_jk6bh"]
+resource_name = "move_loop"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(189, 0), Vector2(94.5, -32), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ioia8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pjvdc"]
+_data = {
+"RESET": SubResource("Animation_ioia8"),
+"move_loop": SubResource("Animation_jk6bh")
+}
+
+[node name="MovingPlateform" type="Node2D"]
+
+[node name="Plateform" type="AnimatableBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Plateform"]
+texture = ExtResource("1_g6i6m")
+region_enabled = true
+region_rect = Rect2(0, 96, 48, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plateform"]
+shape = SubResource("RectangleShape2D_q7os4")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plateform"]
+autoplay = "move_loop"
+libraries = {
+"": SubResource("AnimationLibrary_pjvdc")
+}
